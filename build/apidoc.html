@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.mongoosastic.mongoosastic">
+            function <span class="apidocSignatureSpan"></span>mongoosastic
+            <span class="apidocSignatureSpan">(schema, pluginOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.mongoosastic.mapping_generator">
             function <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator
             <span class="apidocSignatureSpan">()</span>
@@ -108,6 +117,187 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.mongoosastic" id="apidoc.module.mongoosastic">module mongoosastic</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongoosastic.mongoosastic" id="apidoc.element.mongoosastic.mongoosastic">
+        function <span class="apidocSignatureSpan"></span>mongoosastic
+        <span class="apidocSignatureSpan">(schema, pluginOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Mongoosastic(schema, pluginOpts) {
+  let options = pluginOpts || {}
+
+  let bulkTimeout
+  let bulkBuffer = []
+  let esClient
+  let populate = options &#x26;&#x26; options.populate
+  let mapping = getMapping(schema)
+
+  let indexName = options &#x26;&#x26; options.index
+  let typeName = options &#x26;&#x26; options.type
+  let alwaysHydrate = options &#x26;&#x26; options.hydrate
+  let defaultHydrateOptions = options &#x26;&#x26; options.hydrateOptions
+  let bulk = options &#x26;&#x26; options.bulk
+  let filter = options &#x26;&#x26; options.filter
+  let transform = options &#x26;&#x26; options.transform
+  let routing = options &#x26;&#x26; options.routing
+
+  let customProperties = options &#x26;&#x26; options.customProperties
+  let customSerialize = options &#x26;&#x26; options.customSerialize
+  let indexAutomatically = !(options &#x26;&#x26; options.indexAutomatically === false)
+  let saveOnSynchronize = !(options &#x26;&#x26; options.saveOnSynchronize === false)
+
+  if (options.esClient) {
+    esClient = options.esClient
+  } else {
+    esClient = createEsClient(options)
+  }
+
+  function setIndexNameIfUnset (model) {
+    const modelName = model.toLowerCase()
+    if (!indexName) {
+      indexName = `${modelName}s`
+    }
+
+    if (!typeName) {
+      typeName = modelName
+    }
+  }
+
+  function postSave (doc) {
+    let _doc
+    function onIndex (err, res) {
+      if (!filter || !filter(doc)) {
+        doc.emit(&#x27;es-indexed&#x27;, err, res)
+      } else {
+        doc.emit(&#x27;es-filtered&#x27;, err, res)
+      }
+    }
+
+    if (doc) {
+      _doc = new doc.constructor(doc)
+      if (populate &#x26;&#x26; populate.length) {
+        populate.forEach(populateOpts =&#x3e; {
+          _doc.populate(populateOpts)
+        })
+        _doc.execPopulate().then(popDoc =&#x3e; {
+          popDoc.index(onIndex)
+        }).catch(onIndex)
+      } else {
+        _doc.index(onIndex)
+      }
+    }
+  }
+
+  function clearBulkTimeout () {
+    clearTimeout(bulkTimeout)
+    bulkTimeout = undefined
+  }
+
+  function bulkAdd (instruction) {
+    bulkBuffer.push(instruction)
+
+    // Return because we need the doc being indexed
+    // Before we start inserting
+    if (instruction.index &#x26;&#x26; instruction.index._index) {
+      return
+    }
+
+    if (bulkBuffer.length &#x3e;= ((bulk &#x26;&#x26; bulk.size) || 1000)) {
+      schema.statics.flush()
+      clearBulkTimeout()
+    } else if (bulkTimeout === undefined) {
+      bulkTimeout = setTimeout(() =&#x3e; {
+        schema.statics.flush()
+        clearBulkTimeout()
+      }, (bulk &#x26;&#x26; bulk.delay) || 1000)
+    }
+  }
+
+  function bulkDelete (opts, cb) {
+    bulkAdd({
+      delete: {
+        _index: opts.index || indexName,
+        _type: opts.type || typeName,
+        _id: opts.model._id.toString(),
+        _routing: opts.routing
+      }
+    })
+    cb()
+  }
+
+  function bulkIndex (opts) {
+    bulkAdd({
+      index: {
+        _index: opts.index || indexName,
+        _type: opts.type || typeName,
+        _id: opts._id.toString(),
+        _routing: opts.routing
+      }
+    })
+    bulkAdd(opts.model)
+  }
+
+<span class="apidocCodeCommentSpan">  /**
+   * ElasticSearch Client
+   */
+</span>  schema.statics.esClient = esClient
+
+  /**
+   * Create the mapping. Takes an optional settings parameter
+   * and a callback that will be called once the mapping is created
+
+   * @param settings Object (optional)
+   * @param cb Function
+   */
+  schema.statics.createMapping = function createMapping (inSettings, inCb) {
+    let cb = inCb
+    let settings = inSettings
+    if (arguments.length &#x3c; 2) {
+      cb = inSettings || nop
+      settings = undefined
+    }
+
+    setIndexNameIfUnset(this.modelName)
+
+    createMappingIfNotPresent({
+      client: esClient,
+      indexName: indexName,
+      typeName: typeName,
+      schema: schema,
+      settings: settings,
+      properties: customProperties
+    }, cb)
+  }
+
+  /**
+   * @param options  Object (optional)
+   * @param cb Function
+   */
+  schema.methods.index = function schemaIndex (inOpts, inCb) {
+    let index
+    let type
+    let serialModel
+    let cb = inCb
+    let opts = inOpts
+    let _serialize = serialize
+
+    if (arguments.length &#x3c; 2) {
+      cb = inOpts || nop
+      opts = {}
+    }
+
+    if (filter &#x26;&#x26; filter(this)) {
+      return this.unIndex(cb)
+    }
+
+    if (typeof customSerialize === &#x27;function&#x27;) {
+      _serial ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -163,7 +353,23 @@
     properties: mapping
   })
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function isStringArray (arr) {
+return arr.filter &#x26;&#x26; arr.length === (arr.filter(item =&#x3e; typeof item === &#x27;string&#x27;)).length
+}
+
+function getMapping (schema) {
+let retMapping = {}
+generator.<span class="apidocCodeKeywordSpan">generateMapping</span>(schema, (err, mapping) =&#x3e; {
+  if (err) {
+    // no handling needed
+  }
+  retMapping = mapping
+})
+
+return retMapping
+...</pre></li>
     </ul>
 
 

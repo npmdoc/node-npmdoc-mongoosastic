@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/mongoosastic/mongoosastic#readme"
-
-    >mongoosastic (v4.3.0)</a>
+    <a href="https://github.com/mongoosastic/mongoosastic#readme">mongoosastic (v4.3.0)</a>
 </h1>
 <h4>A mongoose plugin that indexes models into elastic search</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.mongoosastic">module mongoosastic</a><ol>
 
@@ -132,22 +125,22 @@
   let bulkTimeout
   let bulkBuffer = []
   let esClient
-  let populate = options &#x26;&#x26; options.populate
+  let populate = options &amp;&amp; options.populate
   let mapping = getMapping(schema)
 
-  let indexName = options &#x26;&#x26; options.index
-  let typeName = options &#x26;&#x26; options.type
-  let alwaysHydrate = options &#x26;&#x26; options.hydrate
-  let defaultHydrateOptions = options &#x26;&#x26; options.hydrateOptions
-  let bulk = options &#x26;&#x26; options.bulk
-  let filter = options &#x26;&#x26; options.filter
-  let transform = options &#x26;&#x26; options.transform
-  let routing = options &#x26;&#x26; options.routing
+  let indexName = options &amp;&amp; options.index
+  let typeName = options &amp;&amp; options.type
+  let alwaysHydrate = options &amp;&amp; options.hydrate
+  let defaultHydrateOptions = options &amp;&amp; options.hydrateOptions
+  let bulk = options &amp;&amp; options.bulk
+  let filter = options &amp;&amp; options.filter
+  let transform = options &amp;&amp; options.transform
+  let routing = options &amp;&amp; options.routing
 
-  let customProperties = options &#x26;&#x26; options.customProperties
-  let customSerialize = options &#x26;&#x26; options.customSerialize
-  let indexAutomatically = !(options &#x26;&#x26; options.indexAutomatically === false)
-  let saveOnSynchronize = !(options &#x26;&#x26; options.saveOnSynchronize === false)
+  let customProperties = options &amp;&amp; options.customProperties
+  let customSerialize = options &amp;&amp; options.customSerialize
+  let indexAutomatically = !(options &amp;&amp; options.indexAutomatically === false)
+  let saveOnSynchronize = !(options &amp;&amp; options.saveOnSynchronize === false)
 
   if (options.esClient) {
     esClient = options.esClient
@@ -170,19 +163,19 @@
     let _doc
     function onIndex (err, res) {
       if (!filter || !filter(doc)) {
-        doc.emit(&#x27;es-indexed&#x27;, err, res)
+        doc.emit('es-indexed', err, res)
       } else {
-        doc.emit(&#x27;es-filtered&#x27;, err, res)
+        doc.emit('es-filtered', err, res)
       }
     }
 
     if (doc) {
       _doc = new doc.constructor(doc)
-      if (populate &#x26;&#x26; populate.length) {
-        populate.forEach(populateOpts =&#x3e; {
+      if (populate &amp;&amp; populate.length) {
+        populate.forEach(populateOpts =&gt; {
           _doc.populate(populateOpts)
         })
-        _doc.execPopulate().then(popDoc =&#x3e; {
+        _doc.execPopulate().then(popDoc =&gt; {
           popDoc.index(onIndex)
         }).catch(onIndex)
       } else {
@@ -201,18 +194,18 @@
 
     // Return because we need the doc being indexed
     // Before we start inserting
-    if (instruction.index &#x26;&#x26; instruction.index._index) {
+    if (instruction.index &amp;&amp; instruction.index._index) {
       return
     }
 
-    if (bulkBuffer.length &#x3e;= ((bulk &#x26;&#x26; bulk.size) || 1000)) {
+    if (bulkBuffer.length &gt;= ((bulk &amp;&amp; bulk.size) || 1000)) {
       schema.statics.flush()
       clearBulkTimeout()
     } else if (bulkTimeout === undefined) {
-      bulkTimeout = setTimeout(() =&#x3e; {
+      bulkTimeout = setTimeout(() =&gt; {
         schema.statics.flush()
         clearBulkTimeout()
-      }, (bulk &#x26;&#x26; bulk.delay) || 1000)
+      }, (bulk &amp;&amp; bulk.delay) || 1000)
     }
   }
 
@@ -255,7 +248,7 @@
   schema.statics.createMapping = function createMapping (inSettings, inCb) {
     let cb = inCb
     let settings = inSettings
-    if (arguments.length &#x3c; 2) {
+    if (arguments.length &lt; 2) {
       cb = inSettings || nop
       settings = undefined
     }
@@ -284,16 +277,16 @@
     let opts = inOpts
     let _serialize = serialize
 
-    if (arguments.length &#x3c; 2) {
+    if (arguments.length &lt; 2) {
       cb = inOpts || nop
       opts = {}
     }
 
-    if (filter &#x26;&#x26; filter(this)) {
+    if (filter &amp;&amp; filter(this)) {
       return this.unIndex(cb)
     }
 
-    if (typeof customSerialize === &#x27;function&#x27;) {
+    if (typeof customSerialize === 'function') {
       _serial ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -346,9 +339,9 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function generateMapping(schema, cb) {
-  const cleanTree = getCleanTree(schema.tree, schema.paths, &#x27;&#x27;)
-  delete cleanTree[schema.get(&#x27;versionKey&#x27;)]
-  let mapping = getMapping(cleanTree, &#x27;&#x27;)
+  const cleanTree = getCleanTree(schema.tree, schema.paths, '')
+  delete cleanTree[schema.get('versionKey')]
+  let mapping = getMapping(cleanTree, '')
   cb(null, {
     properties: mapping
   })
@@ -356,12 +349,12 @@
     <li>example usage<pre class="apidocCodePre">...
 
 function isStringArray (arr) {
-return arr.filter &#x26;&#x26; arr.length === (arr.filter(item =&#x3e; typeof item === &#x27;string&#x27;)).length
+return arr.filter &amp;&amp; arr.length === (arr.filter(item =&gt; typeof item === 'string')).length
 }
 
 function getMapping (schema) {
 let retMapping = {}
-generator.<span class="apidocCodeKeywordSpan">generateMapping</span>(schema, (err, mapping) =&#x3e; {
+generator.<span class="apidocCodeKeywordSpan">generateMapping</span>(schema, (err, mapping) =&gt; {
   if (err) {
     // no handling needed
   }
@@ -381,3 +374,4 @@ return retMapping
     ]
 </div>
 </div>
+</body></html>
