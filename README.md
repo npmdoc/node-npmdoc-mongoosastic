@@ -1,9 +1,14 @@
-# api documentation for  [mongoosastic (v4.3.0)](https://github.com/mongoosastic/mongoosastic#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoosastic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoosastic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoosastic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoosastic)
+# npmdoc-mongoosastic
+
+#### basic api documentation for  [mongoosastic (v4.3.0)](https://github.com/mongoosastic/mongoosastic#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoosastic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoosastic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoosastic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoosastic)
+
 #### A mongoose plugin that indexes models into elastic search
 
-[![NPM](https://nodei.co/npm/mongoosastic.png?downloads=true)](https://www.npmjs.com/package/mongoosastic)
+[![NPM](https://nodei.co/npm/mongoosastic.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mongoosastic)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-mongoosastic_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-mongoosastic/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-mongoosastic/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "James R. Carr",
-        "email": "james.r.carr@gmail.com",
         "url": "http://blog.james-carr.org"
     },
     "bugs": {
@@ -26,289 +30,218 @@
     },
     "contributors": [
         {
-            "name": "Alban Mouton",
-            "email": "alban.mouton@gmail.com"
+            "name": "Alban Mouton"
         },
         {
-            "name": "Alexandre-io",
-            "email": "alexandre@gotoserv.com"
+            "name": "Alexandre-io"
         },
         {
-            "name": "Andreas Schmid",
-            "email": "andreas@nex9.com"
+            "name": "Andreas Schmid"
         },
         {
-            "name": "antoineverger",
-            "email": "antoine.verger@speicher210.com"
+            "name": "antoineverger"
         },
         {
-            "name": "Antoine Verger",
-            "email": "antoine.verger@speicher210.com"
+            "name": "Antoine Verger"
         },
         {
-            "name": "Arseny Zarechnev",
-            "email": "cyanidesign@gmail.com"
+            "name": "Arseny Zarechnev"
         },
         {
-            "name": "Astro",
-            "email": "astro@spaceboyz.net"
+            "name": "Astro"
         },
         {
-            "name": "b96705008",
-            "email": "b96705008@gmail.com"
+            "name": "b96705008"
         },
         {
-            "name": "Bob Lauer",
-            "email": "rlauer@gmail.com"
+            "name": "Bob Lauer"
         },
         {
-            "name": "Brady Brown",
-            "email": "bobrown101@gmail.com"
+            "name": "Brady Brown"
         },
         {
-            "name": "Can Kutlu Kinay",
-            "email": "ckkinay@gmail.com"
+            "name": "Can Kutlu Kinay"
         },
         {
-            "name": "chapel",
-            "email": "jacob.chapel@gmail.com"
+            "name": "chapel"
         },
         {
-            "name": "Charlie Tilt",
-            "email": "charlie@charlietilt.com"
+            "name": "Charlie Tilt"
         },
         {
-            "name": "Christian Sturm",
-            "email": "reezer@reezer.org"
+            "name": "Christian Sturm"
         },
         {
-            "name": "Christophe Wagner",
-            "email": "jitowix@gmail.com"
+            "name": "Christophe Wagner"
         },
         {
-            "name": "cong88",
-            "email": "lecong1225@gmail.com"
+            "name": "cong88"
         },
         {
-            "name": "danteata",
-            "email": "danteata@gmail.com"
+            "name": "danteata"
         },
         {
-            "name": "Dan Williams",
-            "email": "me@deedubs.com"
+            "name": "Dan Williams"
         },
         {
-            "name": "Eugeny Vlasenko",
-            "email": "mahnunchik@gmail.com"
+            "name": "Eugeny Vlasenko"
         },
         {
-            "name": "Francesco Nero",
-            "email": "nerofrancesco@hotmail.com"
+            "name": "Francesco Nero"
         },
         {
-            "name": "gabrielmancini",
-            "email": "gabriel.mancini@gmail.com"
+            "name": "gabrielmancini"
         },
         {
-            "name": "Gary Pearman",
-            "email": "gpearman@gmail.com"
+            "name": "Gary Pearman"
         },
         {
-            "name": "gazsp",
-            "email": "gpearman@gmail.com"
+            "name": "gazsp"
         },
         {
-            "name": "George",
-            "email": "shankga@gmail.com"
+            "name": "George"
         },
         {
-            "name": "George Shank",
-            "email": "shankga@gmail.com"
+            "name": "George Shank"
         },
         {
-            "name": "Gustavo",
-            "email": "guumaster@users.noreply.github.com"
+            "name": "Gustavo"
         },
         {
-            "name": "gustavo.marin",
-            "email": "gustavo.marin@intelygenz.com"
+            "name": "gustavo.marin"
         },
         {
-            "name": "guumaster",
-            "email": "gustavoandresmarin@gmail.com"
+            "name": "guumaster"
         },
         {
-            "name": "guumaster",
-            "email": "guuweb@gmail.com"
+            "name": "guumaster"
         },
         {
-            "name": "Hüseyin BABAL",
-            "email": "huseyinbabal88@gmail.com"
+            "name": "Hüseyin BABAL"
         },
         {
-            "name": "Hüseyin BABAL",
-            "email": "huseyin.babal@eu.sony.com"
+            "name": "Hüseyin BABAL"
         },
         {
-            "name": "Ignacio Lago",
-            "email": "ignacio@glue.gl"
+            "name": "Ignacio Lago"
         },
         {
-            "name": "isayme",
-            "email": "isaymeorg@gmail.com"
+            "name": "isayme"
         },
         {
             "name": "jamescarr",
-            "email": "jamescarr@VirtualBox.(none)",
             "url": "none"
         },
         {
-            "name": "James Carr",
-            "email": "james.r.carr@gmail.com"
+            "name": "James Carr"
         },
         {
-            "name": "James",
-            "email": "jdelibas@gmail.com"
+            "name": "James"
         },
         {
-            "name": "James R. Carr",
-            "email": "james.r.carr@gmail.com"
+            "name": "James R. Carr"
         },
         {
-            "name": "Jason More",
-            "email": "Jason.More@gmail.com"
+            "name": "Jason More"
         },
         {
-            "name": "Jean-Baptiste Demonte",
-            "email": "jbdemonte@gmail.com"
+            "name": "Jean-Baptiste Demonte"
         },
         {
-            "name": "jetNull",
-            "email": "james.tuttle@matrixinsights.com"
+            "name": "jetNull"
         },
         {
-            "name": "John Resig",
-            "email": "jeresig@gmail.com"
+            "name": "John Resig"
         },
         {
-            "name": "Jon Buckley",
-            "email": "jon@jbuckley.ca"
+            "name": "Jon Buckley"
         },
         {
-            "name": "Jon Burgess",
-            "email": "jon.burgess@bundlestars.com"
+            "name": "Jon Burgess"
         },
         {
-            "name": "Jon Burgess",
-            "email": "jonjburgess@gmail.com"
+            "name": "Jon Burgess"
         },
         {
-            "name": "Jose Maza",
-            "email": "jose.maza@rulesware.com"
+            "name": "Jose Maza"
         },
         {
-            "name": "Kyle Mathews",
-            "email": "mathews.kyle@gmail.com"
+            "name": "Kyle Mathews"
         },
         {
-            "name": "Marcos Sanz",
-            "email": "marcos.sanz@13genius.com"
+            "name": "Marcos Sanz"
         },
         {
-            "name": "Matt Audesse",
-            "email": "matt@mattaudesse.com"
+            "name": "Matt Audesse"
         },
         {
-            "name": "Michael Hellein",
-            "email": "themichaek@gmail.com"
+            "name": "Michael Hellein"
         },
         {
-            "name": "Nadeesha Cabral",
-            "email": "nadeesha.cabral@gmail.com"
+            "name": "Nadeesha Cabral"
         },
         {
-            "name": "Nicolas McCurdy",
-            "email": "thenickperson@gmail.com"
+            "name": "Nicolas McCurdy"
         },
         {
-            "name": "Nico Schlömer",
-            "email": "nico.schloemer@gmail.com"
+            "name": "Nico Schlömer"
         },
         {
-            "name": "nlko",
-            "email": "nospam1@thomasson.fr"
+            "name": "nlko"
         },
         {
-            "name": "nvartolomei",
-            "email": "nvartolomei@gmail.com"
+            "name": "nvartolomei"
         },
         {
-            "name": "Phillip Rosen",
-            "email": "phill.rosen@gmail.com"
+            "name": "Phillip Rosen"
         },
         {
-            "name": "py09mb",
-            "email": "py09mb@users.noreply.github.com"
+            "name": "py09mb"
         },
         {
-            "name": "Renner",
-            "email": "kai-uwe.renner@hbv83032616.bauer-de.bauermedia.group"
+            "name": "Renner"
         },
         {
-            "name": "Robert Katzki",
-            "email": "robert@bildungsweb.net"
+            "name": "Robert Katzki"
         },
         {
-            "name": "root",
-            "email": "root@helloo-dev.home"
+            "name": "root"
         },
         {
-            "name": "Ro Ramtohul",
-            "email": "yoitsro@hotmail.com"
+            "name": "Ro Ramtohul"
         },
         {
-            "name": "Samy Pessé",
-            "email": "samypesse@gmail.com"
+            "name": "Samy Pessé"
         },
         {
-            "name": "Sascha Schwabbauer",
-            "email": "sascha@evolved.io"
+            "name": "Sascha Schwabbauer"
         },
         {
-            "name": "Srfrnk",
-            "email": "srfrnk@gmail.com"
+            "name": "Srfrnk"
         },
         {
-            "name": "stickycube",
-            "email": "will.jk01@gmail.com"
+            "name": "stickycube"
         },
         {
-            "name": "Sukru BEZEN",
-            "email": "sukru@sukrubezen.com"
+            "name": "Sukru BEZEN"
         },
         {
-            "name": "taterbase",
-            "email": "shankga@gmail.com"
+            "name": "taterbase"
         },
         {
-            "name": "Vincent Boucher",
-            "email": "vin.boucher@gmail.com"
+            "name": "Vincent Boucher"
         },
         {
-            "name": "Warner Onstine",
-            "email": "warner@clipppr.com"
+            "name": "Warner Onstine"
         },
         {
-            "name": "Will Knowles",
-            "email": "will.jk01@gmail.com"
+            "name": "Will Knowles"
         },
         {
-            "name": "xizhao",
-            "email": "kevin.wang@cloudera.com"
+            "name": "xizhao"
         },
         {
-            "name": "xren",
-            "email": "rex@bittorrent.com"
+            "name": "xren"
         }
     ],
     "dependencies": {
@@ -345,21 +278,17 @@
     "main": "lib/mongoosastic.js",
     "maintainers": [
         {
-            "name": "jamescarr",
-            "email": "james.r.carr@gmail.com"
+            "name": "jamescarr"
         },
         {
-            "name": "taterbase",
-            "email": "shankga@gmail.com"
+            "name": "taterbase"
         },
         {
-            "name": "guumaster",
-            "email": "gustavoandresmarin@gmail.com"
+            "name": "guumaster"
         }
     ],
     "name": "mongoosastic",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/mongoosastic/mongoosastic.git"
@@ -379,71 +308,9 @@
         "mongoose",
         "full text search"
     ],
-    "version": "4.3.0"
+    "version": "4.3.0",
+    "bin": {}
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module mongoosastic](#apidoc.module.mongoosastic)
-1.  [function <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator ()](#apidoc.element.mongoosastic.mapping_generator)
-1.  object <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator.prototype
-
-#### [module mongoosastic.mapping_generator](#apidoc.module.mongoosastic.mapping_generator)
-1.  [function <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator ()](#apidoc.element.mongoosastic.mapping_generator.mapping_generator)
-
-#### [module mongoosastic.mapping_generator.prototype](#apidoc.module.mongoosastic.mapping_generator.prototype)
-1.  [function <span class="apidocSignatureSpan">mongoosastic.mapping_generator.prototype.</span>generateMapping (schema, cb)](#apidoc.element.mongoosastic.mapping_generator.prototype.generateMapping)
-
-
-
-# <a name="apidoc.module.mongoosastic"></a>[module mongoosastic](#apidoc.module.mongoosastic)
-
-#### <a name="apidoc.element.mongoosastic.mapping_generator"></a>[function <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator ()](#apidoc.element.mongoosastic.mapping_generator)
-- description and source-code
-```javascript
-function Generator() {}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.mongoosastic.mapping_generator"></a>[module mongoosastic.mapping_generator](#apidoc.module.mongoosastic.mapping_generator)
-
-#### <a name="apidoc.element.mongoosastic.mapping_generator.mapping_generator"></a>[function <span class="apidocSignatureSpan">mongoosastic.</span>mapping_generator ()](#apidoc.element.mongoosastic.mapping_generator.mapping_generator)
-- description and source-code
-```javascript
-function Generator() {}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.mongoosastic.mapping_generator.prototype"></a>[module mongoosastic.mapping_generator.prototype](#apidoc.module.mongoosastic.mapping_generator.prototype)
-
-#### <a name="apidoc.element.mongoosastic.mapping_generator.prototype.generateMapping"></a>[function <span class="apidocSignatureSpan">mongoosastic.mapping_generator.prototype.</span>generateMapping (schema, cb)](#apidoc.element.mongoosastic.mapping_generator.prototype.generateMapping)
-- description and source-code
-```javascript
-function generateMapping(schema, cb) {
-  const cleanTree = getCleanTree(schema.tree, schema.paths, '')
-  delete cleanTree[schema.get('versionKey')]
-  let mapping = getMapping(cleanTree, '')
-  cb(null, {
-    properties: mapping
-  })
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
